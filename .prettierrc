@@ -1,0 +1,19 @@
+{
+    "semi": true,
+    "tabWidth": 2,
+    "printWidth": 100,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "jsxBracketSameLine": true,
+    "importOrder": [
+        "^(^react$|@react|react|^recoil$)",
+        "^@mui/(.*)$",
+        "<THIRD_PARTY_MODULES>",
+        "^@/(.*)$",
+        "^[./]"
+    ],
+    "importOrderGroupNamespaceSpecifiers": true,
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}
+  
