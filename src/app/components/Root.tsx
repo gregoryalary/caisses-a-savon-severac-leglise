@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 
 import { AppBar, Box, Button, Container, Stack, Toolbar } from "@mui/material";
 
+import Footer from "./Footer";
+
 const Root: FC = () => {
   return (
     <>
@@ -19,6 +21,7 @@ const Root: FC = () => {
         </Container>
       </AppBar>
       <Outlet />
+      <Footer />
     </>
   );
 };

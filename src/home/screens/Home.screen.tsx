@@ -1,6 +1,20 @@
 import React, { type FC } from "react";
+import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineItem,
+  TimelineSeparator,
+  timelineItemClasses,
+} from "@mui/lab";
+import { Alert, Box, Button, Container, Stack, Typography } from "@mui/material";
+
+import L from "leaflet";
+
+import { RACE_PATH_COORDINATES } from "../data/home.data";
 
 const Home: FC = () => {
   return (
@@ -106,6 +120,58 @@ const Home: FC = () => {
           <Button variant="contained">M&apos;inscire</Button>
         </Stack>
       </Container>
+
+      <Box
+        sx={{
+          backgroundColor: "rgb(247, 250, 255)",
+        }}>
+        <Container>
+          <Stack direction="row" spacing={4} pt={2} pb={2}>
+            <Stack spacing={2} flexGrow={1}>
+              <Typography variant="h3">Programme</Typography>
+
+              <Alert severity="info">Retrait des numeros a partir de 8h00</Alert>
+
+              <Timeline
+                sx={{
+                  padding: 0,
+                  [`& .${timelineItemClasses.root}:before`]: {
+                    flex: 0,
+                    padding: 0,
+                  },
+                }}>
+                {[
+                  ["9h00", "Descente d'éssai"],
+                  ["10h30", "Première descente"],
+                  ["14h00", "Deuxième descente"],
+                  ["16h00", "Troisième descente"],
+                ].map(([hour, label], index, array) => (
+                  <TimelineItem key={hour}>
+                    <TimelineSeparator>
+                      <TimelineDot />
+                      {index < array.length - 1 ? <TimelineConnector /> : null}
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      {hour} : {label}
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+              </Timeline>
+            </Stack>
+            <Stack spacing={2} flexGrow={2}>
+              <Typography variant="h3">Parcours</Typography>
+              <MapContainer
+                style={{ height: "400px" }}
+                bounds={L.latLngBounds(RACE_PATH_COORDINATES)}
+                zoom={13}
+                attributionControl={false}>
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <Polyline positions={RACE_PATH_COORDINATES}></Polyline>
+              </MapContainer>
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
     </>
   );
 };
