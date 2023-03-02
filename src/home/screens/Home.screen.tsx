@@ -1,5 +1,4 @@
-import React, { type FC } from "react";
-import { MapContainer, Polyline, TileLayer } from "react-leaflet";
+import React, { type FC, type PropsWithChildren, useRef } from "react";
 
 import {
   Timeline,
@@ -7,171 +6,105 @@ import {
   TimelineContent,
   TimelineDot,
   TimelineItem,
+  TimelineOppositeContent,
   TimelineSeparator,
-  timelineItemClasses,
 } from "@mui/lab";
-import { Alert, Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Alert, Box, Button, Container, Divider, Stack, Typography } from "@mui/material";
 
-import L from "leaflet";
+import HomeHero from "../components/HomeHero";
+import RaceMap from "../components/RaceMap";
 
-import { RACE_PATH_COORDINATES } from "../data/home.data";
+interface SectionProps {
+  title: string;
+  titleRef: React.MutableRefObject<HTMLSpanElement | null>;
+  index: number;
+}
+
+const Section: FC<PropsWithChildren<SectionProps>> = ({ title, titleRef, index, children }) => (
+  <Box
+    sx={{
+      backgroundColor: index % 2 === 0 ? "rgb(247, 250, 255)" : undefined,
+    }}
+    py={4}>
+    <Container>
+      <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
+        <Stack spacing={2} flexGrow={1}>
+          <Typography variant="h3" ref={titleRef} sx={{ scrollMarginTop: "80px" }}>
+            {title}
+          </Typography>
+          {children}
+        </Stack>
+      </Stack>
+    </Container>
+  </Box>
+);
 
 const Home: FC = () => {
+  const mapRef = useRef<HTMLSpanElement | null>(null);
+  const scheduleRef = useRef<HTMLSpanElement | null>(null);
+  const informationsRef = useRef<HTMLSpanElement | null>(null);
+
   return (
     <>
-      <Box
-        sx={{
-          backgroundColor: "rgb(247, 250, 255)",
-          position: "relative",
-          overflow: "hidden",
-          "&::after": {
-            position: "absolute",
-            content: '""',
-            width: { xs: "60%", md: "30%" },
-            zIndex: "1",
-            top: "0px",
-            left: { xs: "0%", md: "5%" },
-            height: "100%",
-            backgroundSize: "18px 18px",
-            backgroundImage: "radial-gradient(rgba(47, 106, 217, 0.4) 20%, transparent 20%)",
-            opacity: "0.2",
-          },
-        }}>
-        <Container>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              minHeight: { md: "600px" },
-            }}>
-            <Box display="flex" alignItems="center" sx={{ p: { xs: 2, md: 0 } }}>
-              <Stack spacing={3} alignItems="start">
-                <Typography component="h1" fontWeight="bold" fontSize="3.75rem" lineHeight="1.2">
-                  Course de caisses à savon
-                </Typography>
+      <HomeHero />
+
+      <Container sx={{ py: 4 }}>
+        <Stack justifyContent="center" alignItems="center" spacing={4}>
+          <Button variant="contained" size="large">
+            M&apos;inscire
+          </Button>
+          <Stack direction="row" spacing={2}>
+            {(
+              [
+                ["Parcours", mapRef],
+                ["Programme", scheduleRef],
+                ["Informations pratiques", informationsRef],
+              ] as Array<[string, React.MutableRefObject<HTMLSpanElement | null>]>
+            ).map(([title, ref], index, items) => (
+              <>
                 <Typography
-                  component="h3"
-                  fontWeight="bold"
-                  fontSize="2.75rem"
-                  lineHeight="1.2"
-                  color="primary">
-                  Dimanche 25 juin 2023
+                  key={title}
+                  onClick={() => ref.current?.scrollIntoView({ behavior: "smooth" })}
+                  sx={{ cursor: "pointer" }}
+                  color="primary.main"
+                  fontWeight="bold">
+                  {title}
                 </Typography>
-                <Typography
-                  component="h2"
-                  fontSize="1.25rem"
-                  lineHeight="1.2"
-                  color="text.secondary">
-                  Séverac l&apos;église • 12310
-                </Typography>
-              </Stack>
-            </Box>
-            <Box
-              sx={{
-                display: { xs: "none", md: "block" },
-                flex: "0 0 50%",
-                maxWidth: "50%",
-              }}>
-              <Box
-                sx={{
-                  width: "50vw",
-                  height: "100%",
-                  position: "relative",
-                }}>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    overflow: "hidden",
-                  }}>
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      clipPath: "polygon(10% 0%, 100% 0px, 100% 100%, 0% 100%)",
-                      shapeOutside: "polygon(10% 0%, 100% 0px, 100% 100%, 0% 100%)",
-                      width: "100%",
-                      height: "100%",
-                      overflow: "hidden",
-                      left: 0,
-                    }}>
-                    <Box
-                      sx={{
-                        height: "100%",
-                      }}>
-                      <img
-                        src="/img/home/hero.jpg"
-                        style={{
-                          height: "100%",
-                          maxHeight: " 100%",
-                          objectFit: "cover",
-                          width: "100%",
-                          maxWidth: "100%",
-                        }}></img>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-      <Container sx={{ pt: 2, pb: 2 }}>
-        <Stack justifyContent="center" alignItems="center">
-          <Button variant="contained">M&apos;inscire</Button>
+                {index < items.length - 1 ? <Divider orientation="vertical" flexItem /> : null}
+              </>
+            ))}
+          </Stack>
         </Stack>
       </Container>
 
-      <Box
-        sx={{
-          backgroundColor: "rgb(247, 250, 255)",
-        }}>
-        <Container>
-          <Stack direction="row" spacing={4} pt={2} pb={2}>
-            <Stack spacing={2} flexGrow={1}>
-              <Typography variant="h3">Programme</Typography>
+      <Section title="Parcours" titleRef={mapRef} index={0}>
+        <RaceMap />
+      </Section>
 
-              <Alert severity="info">Retrait des numeros a partir de 8h00</Alert>
+      <Section title="Programme" titleRef={scheduleRef} index={1}>
+        <Alert severity="info">Retrait des numéros a partir de 8h00</Alert>
+        <Timeline>
+          {[
+            ["9h00", "Descente d'éssai"],
+            ["10h30", "Première descente"],
+            ["14h00", "Deuxième descente"],
+            ["16h00", "Troisième descente"],
+          ].map(([hour, label], index, array) => (
+            <TimelineItem key={hour}>
+              <TimelineOppositeContent>{hour}</TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                {index < array.length - 1 ? <TimelineConnector /> : null}
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography>{label}</Typography>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
+      </Section>
 
-              <Timeline
-                sx={{
-                  padding: 0,
-                  [`& .${timelineItemClasses.root}:before`]: {
-                    flex: 0,
-                    padding: 0,
-                  },
-                }}>
-                {[
-                  ["9h00", "Descente d'éssai"],
-                  ["10h30", "Première descente"],
-                  ["14h00", "Deuxième descente"],
-                  ["16h00", "Troisième descente"],
-                ].map(([hour, label], index, array) => (
-                  <TimelineItem key={hour}>
-                    <TimelineSeparator>
-                      <TimelineDot />
-                      {index < array.length - 1 ? <TimelineConnector /> : null}
-                    </TimelineSeparator>
-                    <TimelineContent>
-                      {hour} : {label}
-                    </TimelineContent>
-                  </TimelineItem>
-                ))}
-              </Timeline>
-            </Stack>
-            <Stack spacing={2} flexGrow={2}>
-              <Typography variant="h3">Parcours</Typography>
-              <MapContainer
-                style={{ height: "400px" }}
-                bounds={L.latLngBounds(RACE_PATH_COORDINATES)}
-                zoom={13}
-                attributionControl={false}>
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Polyline positions={RACE_PATH_COORDINATES}></Polyline>
-              </MapContainer>
-            </Stack>
-          </Stack>
-        </Container>
-      </Box>
+      <Section title="Informations pratiques" titleRef={informationsRef} index={2}></Section>
     </>
   );
 };
