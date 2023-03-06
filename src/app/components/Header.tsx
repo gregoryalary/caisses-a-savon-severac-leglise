@@ -8,7 +8,7 @@ const Header: FC = () => (
     <Container>
       <Toolbar>
         <Box flexGrow={1} />
-        <Stack direction="row">
+        <Stack direction="row" spacing={2}>
           <Button href="https://association-centre-grezes.fr/" target="_blank">
             DITEP de Grèzes
           </Button>
@@ -17,6 +17,9 @@ const Header: FC = () => (
           </Button>
           <Button component={Link} to="/team-gabba">
             Team Gabba
+          </Button>
+          <Button component={Link} to="/inscription" variant="contained">
+            Inscription
           </Button>
         </Stack>
       </Toolbar>
