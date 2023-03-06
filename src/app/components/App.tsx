@@ -3,7 +3,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+// Screens
+import Enrolment from "../../enrolment/screens/Enrolment.screen";
 import Home from "../../home/screens/Home.screen";
+import Partners from "../../partners/screens/Partners.screen";
+import StoryTelling from "../../story-telling/screens/StoryTelling.screen";
 import Root from "./Root";
 
 const theme = createTheme({
@@ -35,6 +39,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/team-gabba",
+        element: <StoryTelling />,
+      },
+      {
+        path: "/partenaires",
+        element: <Partners />,
+      },
+      {
+        path: "/inscription",
+        element: <Enrolment />,
       },
     ],
   },
