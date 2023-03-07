@@ -9,7 +9,17 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@mui/lab";
-import { Alert, Box, Button, Container, Divider, Stack, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 import HomeHero from "../components/HomeHero";
 import RaceMap from "../components/RaceMap";
@@ -40,6 +50,8 @@ const Section: FC<PropsWithChildren<SectionProps>> = ({ title, titleRef, index, 
 );
 
 const Home: FC = () => {
+  const theme = useTheme();
+
   const mapRef = useRef<HTMLSpanElement | null>(null);
   const scheduleRef = useRef<HTMLSpanElement | null>(null);
   const informationsRef = useRef<HTMLSpanElement | null>(null);
@@ -53,7 +65,7 @@ const Home: FC = () => {
           <Button variant="contained" size="large">
             M&apos;inscire
           </Button>
-          <Stack direction="row" spacing={2}>
+          <Stack direction={{ xs: "column", md: "row" }} alignItems="center" spacing={2}>
             {(
               [
                 ["Parcours", mapRef],
@@ -70,7 +82,14 @@ const Home: FC = () => {
                   fontWeight="bold">
                   {title}
                 </Typography>
-                {index < items.length - 1 ? <Divider orientation="vertical" flexItem /> : null}
+                {index < items.length - 1 ? (
+                  <Divider
+                    orientation={
+                      useMediaQuery(theme.breakpoints.down("md")) ? "horizontal" : "vertical"
+                    }
+                    flexItem
+                  />
+                ) : null}
               </>
             ))}
           </Stack>
