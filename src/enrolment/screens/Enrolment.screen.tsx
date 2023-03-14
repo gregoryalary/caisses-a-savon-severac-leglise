@@ -63,7 +63,13 @@ const Enrolment: FC = () => {
           </Stack>
         </Stack>
         <Stack alignItems="center">
-          <Button variant="contained" size="large" endIcon={<DownloadIcon />}>
+          <Button
+            variant="contained"
+            size="large"
+            endIcon={<DownloadIcon />}
+            href="/document/inscription-caisse-a-savon-severac-leglise.pdf"
+            download="inscription-caisse-a-savon-severac-leglise.pdf"
+            target="_blank">
             Télécharger le bulletin d&apos;engagement
           </Button>
         </Stack>
