@@ -1,6 +1,8 @@
 import React, { type FC } from "react";
 import { Outlet } from "react-router-dom";
 
+import { Box } from "@mui/material";
+
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -8,7 +10,9 @@ const Root: FC = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Box>
+        <Outlet />
+      </Box>
       <Footer />
     </>
   );

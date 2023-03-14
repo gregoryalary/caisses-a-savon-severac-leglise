@@ -14,9 +14,10 @@ import {
   MenuItem,
   Stack,
   Toolbar,
-  Typography,
   useTheme,
 } from "@mui/material";
+
+import Logo from "./Logo";
 
 const Header: FC = () => {
   const theme = useTheme();
@@ -32,22 +33,10 @@ const Header: FC = () => {
   };
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="relative" elevation={4}>
       <Container>
         <Toolbar>
-          <Link to="/">
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <Box component="img" src="/img/logo.png" sx={{ height: 32 }} />
-              <Stack>
-                <Typography color="primary.main" fontSize={14}>
-                  Caisse à savon
-                </Typography>
-                <Typography color="text.secondary" fontSize={11}>
-                  Séverac l&apos;église
-                </Typography>
-              </Stack>
-            </Stack>
-          </Link>
+          <Logo />
 
           <Box flexGrow={1} />
 

@@ -1,9 +1,13 @@
 import React, { type FC } from "react";
 
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 const Partners: FC = () => {
-  return <Typography>Partners</Typography>;
+  return (
+    <Container>
+      <Typography>Todo</Typography>
+    </Container>
+  );
 };
 
 export default Partners;
