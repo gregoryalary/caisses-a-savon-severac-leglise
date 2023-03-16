@@ -2,6 +2,8 @@ import React, { type FC } from "react";
 
 import { Box, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
+import PageTitle from "../../app/components/PageTitle";
+
 const StoryTelling: FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -9,7 +11,8 @@ const StoryTelling: FC = () => {
   return (
     <Box component={Container} py={4}>
       <Stack spacing={4}>
-        <Typography variant="h4">La team GABBA</Typography>
+        <PageTitle title="La team GABBA" />
+        <Divider />
         <Box
           height={{ xs: 250, md: 400 }}
           display="flex"

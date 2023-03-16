@@ -23,14 +23,14 @@ const RaceMap: FC = () => {
         zoom={13}
         attributionControl={false}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Polyline positions={RACE_PATH_COORDINATES} color={theme.palette.primary.main}></Polyline>
+        <Polyline positions={RACE_PATH_COORDINATES} color={theme.palette.secondary.main}></Polyline>
         {hoveredElevationCoordinates != null ? (
           <Circle
             center={hoveredElevationCoordinates}
             radius={12}
             fillOpacity={0.8}
-            fillColor={theme.palette.secondary.main}
-            color={theme.palette.secondary.main}></Circle>
+            fillColor={theme.palette.primary.main}
+            color={theme.palette.primary.main}></Circle>
         ) : null}
       </MapContainer>
       <ResponsiveContainer height={200}>

@@ -14,10 +14,24 @@ const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#025c14",
+      main: "#f7d402",
     },
     secondary: {
-      main: "#5a2300",
+      main: "#003099",
+    },
+  },
+  typography: {
+    h1: {
+      fontFamily: "Racing Sans One",
+      fontSize: 64,
+    },
+    h2: {
+      fontWeight: "normal",
+      fontSize: 48,
+    },
+    h3: {
+      fontWeight: "normal",
+      fontSize: 36,
     },
   },
   components: {
