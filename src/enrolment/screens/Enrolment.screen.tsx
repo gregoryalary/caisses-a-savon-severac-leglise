@@ -7,17 +7,20 @@ import {
   AlertTitle,
   Box,
   Button,
-  Card,
-  CardContent,
   Container,
+  Divider,
   Stack,
   Typography,
 } from "@mui/material";
+
+import PageTitle from "../../app/components/PageTitle";
 
 const Enrolment: FC = () => {
   return (
     <Box component={Container} py={4}>
       <Stack spacing={4}>
+        <PageTitle title="Inscription" />
+        <Divider />
         <Alert severity="warning">
           <AlertTitle>10/06/2023</AlertTitle>
           <Stack spacing={1}>
@@ -53,13 +56,17 @@ const Enrolment: FC = () => {
               </Typography>{" "}
               à l&apos;adresse suivante :
             </Typography>
-            <Card>
-              <CardContent>
-                <Typography>Mme Sophie Grosjean</Typography>
-                <Typography>2 rue de la Gare</Typography>
-                <Typography>89100 Sens</Typography>
-              </CardContent>
-            </Card>
+            <Box
+              sx={{ borderLeftWidth: 4, borderLeftColor: "grey.300", borderLeftStyle: "solid" }}
+              pl={2}>
+              <Stack spacing={1}>
+                <Typography>Mme Sophie GROH</Typography>
+                <Typography>DITEP de Grèzes</Typography>
+                <Typography>8 avenue de la Plaine</Typography>
+                <Typography>Séverac l&apos;Eglise</Typography>
+                <Typography>12310 LAISSAC-SEVERAC L’EGLISE</Typography>
+              </Stack>
+            </Box>
           </Stack>
         </Stack>
         <Stack alignItems="center">
