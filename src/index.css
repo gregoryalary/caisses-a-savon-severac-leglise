@@ -1,8 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap');
+
 @import '@fontsource/roboto/300.css';
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/500.css';
 @import '@fontsource/roboto/700.css';
 
+@import '~leaflet/dist/leaflet.css';
+
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
+      stroke-opacity: 0;
+}
+
 body {
   margin: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+footer { margin-top: auto }
+
+.swiper-pagination-bullet-active {
+  background-color: #d83047 !important;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+  color: #d83047 !important;
 }
