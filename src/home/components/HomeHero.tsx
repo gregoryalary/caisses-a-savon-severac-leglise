@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Tooltip, Typography } from "@mui/material";
 
 const HomeHero: FC = () => (
   <Box
@@ -27,6 +27,23 @@ const HomeHero: FC = () => (
             <Typography variant="h3" color="text.secondary">
               Séverac l&apos;église • 12310
             </Typography>
+            <Stack direction="row" spacing={4}>
+              <Tooltip title="DITEP de Grèzes" arrow>
+                <Box
+                  component="img"
+                  src="/img/home/logo/ditep-de-grezes.png"
+                  style={{ height: "50px" }}
+                />
+              </Tooltip>
+
+              <Tooltip title="Team GABBA" arrow>
+                <Box
+                  component="img"
+                  src="/img/home/logo/team-gabba.jpg"
+                  style={{ height: "50px" }}
+                />
+              </Tooltip>
+            </Stack>
           </Stack>
         </Box>
         <Box
@@ -69,6 +86,7 @@ const HomeHero: FC = () => (
                       objectFit: "cover",
                       width: "100%",
                       maxWidth: "100%",
+                      objectPosition: "bottom",
                     }}></img>
                 </Box>
               </Box>

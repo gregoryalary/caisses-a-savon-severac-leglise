@@ -1,13 +1,31 @@
 import React, { type FC, useState } from "react";
-import { Circle, MapContainer, Polyline, TileLayer } from "react-leaflet";
+import {
+  Circle,
+  Tooltip as LeafletTooltip,
+  MapContainer,
+  Marker,
+  Polyline,
+  TileLayer,
+} from "react-leaflet";
 
 import { Stack, useTheme } from "@mui/material";
 
 import L, { type LatLngExpression } from "leaflet";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import throttle from "lodash.throttle";
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 
 import { RACE_PATH_COORDINATES, RACE_PATH_COORDINATES_WITH_ELEVATION } from "../data/home.data";
+
+const DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const RaceMap: FC = () => {
   const theme = useTheme();
@@ -19,8 +37,8 @@ const RaceMap: FC = () => {
     <Stack spacing={2} width="100%" maxWidth="100%">
       <MapContainer
         style={{ height: "400px" }}
-        bounds={L.latLngBounds(RACE_PATH_COORDINATES)}
-        zoom={13}
+        center={[44.363244, 2.851495]}
+        zoom={14}
         attributionControl={false}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Polyline positions={RACE_PATH_COORDINATES} color={theme.palette.secondary.main}></Polyline>
@@ -32,6 +50,11 @@ const RaceMap: FC = () => {
             fillColor={theme.palette.primary.main}
             color={theme.palette.primary.main}></Circle>
         ) : null}
+        <Marker position={[44.363244, 2.851495]}>
+          <LeafletTooltip permanent direction="left" offset={[-12, -25]}>
+            DITEP de Grèzes
+          </LeafletTooltip>
+        </Marker>
       </MapContainer>
       <ResponsiveContainer height={200}>
         <AreaChart

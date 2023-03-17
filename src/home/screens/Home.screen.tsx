@@ -55,6 +55,8 @@ const Home: FC = () => {
   const mapRef = useRef<HTMLSpanElement | null>(null);
   const scheduleRef = useRef<HTMLSpanElement | null>(null);
   const informationsRef = useRef<HTMLSpanElement | null>(null);
+  const videoRef = useRef<HTMLSpanElement | null>(null);
+  const posterRef = useRef<HTMLSpanElement | null>(null);
 
   return (
     <>
@@ -70,6 +72,8 @@ const Home: FC = () => {
               [
                 ["Parcours", mapRef],
                 ["Programme", scheduleRef],
+                ["Vidéo", informationsRef],
+                ["Affiche", posterRef],
                 ["Informations pratiques", informationsRef],
               ] as Array<[string, React.MutableRefObject<HTMLSpanElement | null>]>
             ).map(([title, ref], index, items) => (
@@ -123,7 +127,25 @@ const Home: FC = () => {
         </Timeline>
       </Section>
 
-      <Section title="Informations pratiques" titleRef={informationsRef} index={2}></Section>
+      <Section title="Vidéo" titleRef={videoRef} index={2}>
+        <Box
+          component="video"
+          sx={{ height: { xs: 300, md: 500 }, backgroundColor: "black" }}
+          controls>
+          <source src="/video/track.mp4" type="video/mp4" />
+        </Box>
+      </Section>
+
+      <Section title="Affiche" titleRef={posterRef} index={3}>
+        <Stack alignItems="center">
+          <Box
+            component="img"
+            sx={{ height: "800px", width: "max-content" }}
+            src="/img/home/poster.jpg"></Box>
+        </Stack>
+      </Section>
+
+      <Section title="Informations pratiques" titleRef={informationsRef} index={4}></Section>
     </>
   );
 };

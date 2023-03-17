@@ -32,3 +32,11 @@ a {
 }
 
 footer { margin-top: auto }
+
+.swiper-pagination-bullet-active {
+  background-color: #d83047 !important;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+  color: #d83047 !important;
+}

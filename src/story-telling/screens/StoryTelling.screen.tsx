@@ -2,6 +2,13 @@ import React, { type FC } from "react";
 
 import { Box, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
+import { Autoplay, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import PageTitle from "../../app/components/PageTitle";
 
 const StoryTelling: FC = () => {
@@ -13,19 +20,36 @@ const StoryTelling: FC = () => {
       <Stack spacing={4}>
         <PageTitle title="La team GABBA" />
         <Divider />
-        <Box
-          height={{ xs: 250, md: 400 }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          bgcolor="grey.200"
-          borderRadius={2}>
-          <img
-            src="/img/storytelling/team-gabba.jpg"
-            alt="Team GABBA"
-            style={{ maxWidth: "100%", maxHeight: "100%" }}
-          />
-        </Box>
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={1}
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation={{ enabled: true }}
+          autoplay={{ delay: 5000 }}
+          pagination={{ clickable: true }}>
+          {[
+            { src: "/img/storytelling/team-gabba.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba2.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba3.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba4.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba5.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba6.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba7.jpg", alt: "Team GABBA" },
+            { src: "/img/storytelling/team-gabba8.jpg", alt: "Team GABBA" },
+          ].map(({ src, alt }) => (
+            <SwiperSlide key={src}>
+              <Box
+                height={{ xs: 250, md: 400 }}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                bgcolor="grey.200"
+                borderRadius={2}>
+                <img src={src} alt={alt} style={{ maxWidth: "100%", maxHeight: "100%" }} />
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <Stack
           direction={{ xs: "column", md: "row" }}
           alignItems="center"
