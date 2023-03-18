@@ -1,6 +1,6 @@
 {
-    "short_name": "Caisses à savon Séverac l'église",
-    "name": "Course de caisses à savon Séverac l'église",
+    "short_name": "Caisses à savon Sévérac l'église",
+    "name": "Course de caisses à savon Sévérac l'église",
     "icons": [
       {
         "src": "/img/512x512.png",
@@ -9,5 +9,5 @@
       }
     ],
     "background_color": "#ffffff",
-    "description": "Course de caisses à savon Séverac l'église"
+    "description": "Course de caisses à savon Sévérac l'église"
   }
