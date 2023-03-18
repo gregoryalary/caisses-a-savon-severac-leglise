@@ -13,7 +13,7 @@ const Logo: FC = memo(function Logo() {
             Caisse à savon
           </Typography>
           <Typography color="text.secondary" fontSize={11}>
-            Séverac l&apos;église
+            Sévérac l&apos;église
           </Typography>
         </Stack>
       </Stack>

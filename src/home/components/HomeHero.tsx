@@ -25,7 +25,7 @@ const HomeHero: FC = () => (
               Dimanche 25 juin 2023
             </Typography>
             <Typography variant="h3" color="text.secondary">
-              Séverac l&apos;église • 12310
+              Sévérac l&apos;église • 12310
             </Typography>
             <Stack direction="row" spacing={4}>
               <Tooltip title="DITEP de Grèzes" arrow>

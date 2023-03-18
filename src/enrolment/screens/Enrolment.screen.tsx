@@ -68,7 +68,7 @@ const Enrolment: FC = () => {
                 <Typography>Mme Sophie GROH</Typography>
                 <Typography>DITEP de Grèzes</Typography>
                 <Typography>8 avenue de la Plaine</Typography>
-                <Typography>Séverac l&apos;Eglise</Typography>
+                <Typography>Sévérac l&apos;Eglise</Typography>
                 <Typography>12310 LAISSAC-SEVERAC L’EGLISE</Typography>
               </Stack>
             </Box>
