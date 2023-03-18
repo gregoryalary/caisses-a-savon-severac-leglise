@@ -1,4 +1,5 @@
 import React, { type FC, type PropsWithChildren, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Timeline,
@@ -10,7 +11,6 @@ import {
   TimelineSeparator,
 } from "@mui/lab";
 import {
-  Alert,
   Box,
   Button,
   Container,
@@ -54,7 +54,7 @@ const Home: FC = () => {
 
   const mapRef = useRef<HTMLSpanElement | null>(null);
   const scheduleRef = useRef<HTMLSpanElement | null>(null);
-  const informationsRef = useRef<HTMLSpanElement | null>(null);
+  // const informationsRef = useRef<HTMLSpanElement | null>(null);
   const videoRef = useRef<HTMLSpanElement | null>(null);
   const posterRef = useRef<HTMLSpanElement | null>(null);
 
@@ -64,7 +64,7 @@ const Home: FC = () => {
 
       <Container sx={{ py: 4 }}>
         <Stack justifyContent="center" alignItems="center" spacing={4}>
-          <Button variant="contained" size="large">
+          <Button variant="contained" size="large" component={Link} to="/inscription">
             M&apos;inscire
           </Button>
           <Stack direction={{ xs: "column", md: "row" }} alignItems="center" spacing={2}>
@@ -72,9 +72,9 @@ const Home: FC = () => {
               [
                 ["Parcours", mapRef],
                 ["Programme", scheduleRef],
-                ["Vidéo", informationsRef],
+                ["Vidéo", videoRef],
                 ["Affiche", posterRef],
-                ["Informations pratiques", informationsRef],
+                // ["Informations pratiques", informationsRef],
               ] as Array<[string, React.MutableRefObject<HTMLSpanElement | null>]>
             ).map(([title, ref], index, items) => (
               <>
@@ -105,9 +105,9 @@ const Home: FC = () => {
       </Section>
 
       <Section title="Programme" titleRef={scheduleRef} index={1}>
-        <Alert severity="info">Retrait des numéros a partir de 8h00</Alert>
         <Timeline>
           {[
+            ["8h00", "Retrait des numéros"],
             ["9h00", "Descente d'éssai"],
             ["10h30", "Première descente"],
             ["14h00", "Deuxième descente"],
@@ -140,12 +140,12 @@ const Home: FC = () => {
         <Stack alignItems="center">
           <Box
             component="img"
-            sx={{ height: "800px", width: "max-content" }}
+            sx={{ maxHeight: "800px", width: "max-content", maxWidth: "100%" }}
             src="/img/home/poster.jpg"></Box>
         </Stack>
       </Section>
 
-      <Section title="Informations pratiques" titleRef={informationsRef} index={4}></Section>
+      {/* <Section title="Informations pratiques" titleRef={informationsRef} index={4}></Section> */}
     </>
   );
 };
