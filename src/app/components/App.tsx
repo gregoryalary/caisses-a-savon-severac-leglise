@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -45,7 +45,7 @@ const theme = createTheme({
   },
 });
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Root />,

@@ -49,7 +49,7 @@ const Partners: FC = () => {
               "Garage JD Autos à Bagnols les bains (48)",
               "Auto Distribution CAPA à Rodez",
             ].map((name) => (
-              <Grid key={name} item md={3} display="flex">
+              <Grid key={name} item xs={12} sm={6} md={3} display="flex">
                 <PartnerCard name={name} />
               </Grid>
             ))}

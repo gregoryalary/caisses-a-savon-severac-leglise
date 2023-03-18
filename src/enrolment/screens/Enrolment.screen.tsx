@@ -32,9 +32,9 @@ const Enrolment: FC = () => {
           <ul>
             <li>
               <Typography color="primary.main" component="span" fontWeight="bold">
-                <Link to="/document/reglement-folkorique.pdf" target="_blank">
+                <a href="/document/reglement-folkorique.pdf" target="_blank">
                   Règlement folklorique
-                </Link>
+                </a>
               </Typography>
             </li>
 
