@@ -74,7 +74,7 @@ const StoryTelling: FC = () => {
         <Stack spacing={2}>
           <Typography>
             Sous l&apos;impulsion de madame GROH Sophie directrice adjointe, le projet «Caisse à
-            savon» a vu le jour durant l&apos;année scolaire 2021. Ce projet concerne les eunes en
+            savon» a vu le jour durant l&apos;année scolaire 2021. Ce projet concerne les jeunes en
             formation à l&apos;Atelier mécanique.
           </Typography>
           <Typography>
@@ -82,9 +82,9 @@ const StoryTelling: FC = () => {
             était donné.
           </Typography>
           <Typography>
-            Un groupe de salariés intéressé et motivé par le projet se mirent à la recherche de
-            contacts dans le milieu des courses de caisses à savon. Un premier contact fût pris
-            auprès du Comité Cévenol organisateurs de courses dans la région Occitanie.
+            Un groupe de salariés intéressés et motivés par le projet se mit à la recherche de
+            contacts dans le milieu des courses de caisses à savon. Un premier contact fut pris
+            auprès du Comité Cévenol organisateur de courses dans la région Occitanie.
           </Typography>
           <Typography>
             L&apos;aventure était lancée, des contacts enrichissant auprès des professionnels de
@@ -103,11 +103,11 @@ const StoryTelling: FC = () => {
             course sur notre village.
           </Typography>
           <Typography>
-            Notre demande fût validée et nous sommes au travail depuis Septembre pour que la
+            Notre demande fut validée et nous sommes au travail depuis Septembre pour que la
             première course que nous organiserons le Dimanche 25 Juin 2023 soit une réussite.
           </Typography>
           <Typography>
-            La continuité de ce projet se concrétise en 2023 par la construction de deux nouvelle
+            La continuité de ce projet se concrétise en 2023 par la construction de deux nouvelles
             caisses par les jeunes de l&apos;Atelier mécanique de l&apos;établissement.
           </Typography>
         </Stack>

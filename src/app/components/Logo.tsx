@@ -10,7 +10,7 @@ const Logo: FC = memo(function Logo() {
         <Box component="img" src="/img/logo.png" sx={{ height: 32 }} />
         <Stack>
           <Typography color="primary.main" fontSize={14}>
-            Caisse à savon
+            Caisses à savon
           </Typography>
           <Typography color="text.secondary" fontSize={11}>
             Sévérac l&apos;église

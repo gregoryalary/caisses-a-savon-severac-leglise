@@ -108,7 +108,7 @@ const Home: FC = () => {
         <Timeline>
           {[
             ["8h00", "Retrait des numéros"],
-            ["9h00", "Descente d'éssai"],
+            ["9h00", "Descente d'essai"],
             ["10h30", "Première descente"],
             ["14h00", "Deuxième descente"],
             ["16h00", "Troisième descente"],
