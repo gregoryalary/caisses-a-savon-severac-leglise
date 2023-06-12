@@ -1,3 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://caisses-a-savon-severac-leglise.fr/sitemap.xml
+
 User-agent: *
-Disallow: *
+Allow: /*
