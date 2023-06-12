@@ -69,7 +69,7 @@ const Header: FC = () => {
               </Link>
               <Link to="/partenaires">
                 <MenuItem>
-                  <ListItemText>Paternaires</ListItemText>
+                  <ListItemText>partenaires</ListItemText>
                 </MenuItem>
               </Link>
               <Link to="/team-gabba">
@@ -94,7 +94,7 @@ const Header: FC = () => {
               DITEP de Grèzes
             </Button>
             <Button component={Link} to="/partenaires">
-              Paternaires
+              partenaires
             </Button>
             <Button component={Link} to="/team-gabba">
               Team Gabba
