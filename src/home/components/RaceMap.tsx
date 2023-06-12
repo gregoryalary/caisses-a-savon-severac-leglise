@@ -37,11 +37,11 @@ const RaceMap: FC = () => {
     <Stack spacing={2} width="100%" maxWidth="100%">
       <MapContainer
         style={{ height: "400px" }}
-        center={[44.363244, 2.851495]}
-        zoom={14}
+        center={[44.359744, 2.851495]}
+        zoom={15}
         attributionControl={false}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Polyline positions={RACE_PATH_COORDINATES} color={theme.palette.secondary.main}></Polyline>
+        <Polyline positions={RACE_PATH_COORDINATES} color={theme.palette.primary.main} weight={3} />
         {hoveredElevationCoordinates != null ? (
           <Circle
             center={hoveredElevationCoordinates}
@@ -50,8 +50,18 @@ const RaceMap: FC = () => {
             fillColor={theme.palette.primary.main}
             color={theme.palette.primary.main}></Circle>
         ) : null}
+        <Marker position={[44.355474, 2.85291]}>
+          <LeafletTooltip permanent direction="right" offset={[15, -25]}>
+            Départ
+          </LeafletTooltip>
+        </Marker>
+        <Marker position={[44.360859, 2.847086]}>
+          <LeafletTooltip permanent direction="left" offset={[-15, -25]}>
+            Arrivée
+          </LeafletTooltip>
+        </Marker>
         <Marker position={[44.363244, 2.851495]}>
-          <LeafletTooltip permanent direction="left" offset={[-12, -25]}>
+          <LeafletTooltip permanent direction="left" offset={[-15, -25]}>
             DITEP de Grèzes
           </LeafletTooltip>
         </Marker>

@@ -22,7 +22,7 @@ const Enrolment: FC = () => {
         <PageTitle title="Inscription" />
         <Divider />
         <Alert severity="warning">
-          <AlertTitle>10/06/2023</AlertTitle>
+          <AlertTitle>Mardi 20/06/2023</AlertTitle>
           <Stack spacing={1}>
             <Typography>Date limite d&apos;inscription</Typography>
           </Stack>
@@ -42,7 +42,7 @@ const Enrolment: FC = () => {
               <Typography>
                 Règlement complet sur{" "}
                 <Typography color="primary.main" component="span" fontWeight="bold">
-                  <Link to="https://www.federation-caisses-a-savon.com/" target="_blank">
+                  <Link to="https://www.federation-caisses-a-savon.com/blank-3" target="_blank">
                     www.federation-caisses-a-savon.com
                   </Link>
                 </Typography>
